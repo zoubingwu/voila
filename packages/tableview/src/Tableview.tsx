@@ -71,7 +71,7 @@ export const TableView: React.FC<TableViewProps> = ({
     scrollOffset: 0,
   });
 
-  const debouncedResetScrollingRef = useRef<{ id: number | null }>({
+  const debouncedResetScrollingRef = useRef<{ id: NodeJS.Timeout | null }>({
     id: null,
   });
 
