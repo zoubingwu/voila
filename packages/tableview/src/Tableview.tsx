@@ -5,6 +5,7 @@ import React, {
   ReactElement,
   SyntheticEvent,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -31,6 +32,8 @@ export interface TableViewProps extends CommonProps {
   thresholdCount?: number;
   getItemKey?: (index: number, dataSource: any) => number;
   dataSource: any[];
+  onLoadMoreData?: () => void;
+  isDataFullyLoaded?: boolean;
 }
 
 interface TableViewState {
@@ -38,6 +41,12 @@ interface TableViewState {
   scrollDirection: 'up' | 'down';
   scrollOffset: number;
 }
+
+function defaultGetItemKey(index: number) {
+  return index;
+}
+
+function noop() {}
 
 export const TableView: React.FC<TableViewProps> = ({
   className,
@@ -48,8 +57,10 @@ export const TableView: React.FC<TableViewProps> = ({
   itemCount,
   thresholdCount = 1,
   children,
-  getItemKey = (index: number) => index,
+  getItemKey = defaultGetItemKey,
   dataSource,
+  onLoadMoreData = noop,
+  isDataFullyLoaded = true,
 }) => {
   const [
     { isScrolling, scrollDirection, scrollOffset },
@@ -155,6 +166,13 @@ export const TableView: React.FC<TableViewProps> = ({
     }
     return res;
   }, [startIndex, endIndex, isScrolling, dataSource]);
+
+  useEffect(() => {
+    if (isDataFullyLoaded) return;
+    if (endIndex + thresholdCount >= itemCount) {
+      onLoadMoreData();
+    }
+  }, [endIndex, itemCount]);
 
   return (
     <div
