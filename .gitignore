@@ -107,3 +107,4 @@ lib/
 *.db
 *.db-shm
 *.db-wal
+.parcel-cache/
