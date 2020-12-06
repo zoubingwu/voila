@@ -32,7 +32,7 @@ It contains the following packges:
 
 ## animation
 
-This pakage implemented a spring physics based React animation library.
+This pakage implemented a spring physics based React animation primitive called **SpringValue**.
 
 It exposed two simple to use react hooks API: **useSpringValue** and **useTrail**.
 
