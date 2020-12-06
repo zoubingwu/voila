@@ -34,7 +34,6 @@ function config({ format, minify = true, input, ext = 'js' }) {
           })
         : undefined,
     ].filter(Boolean),
-    external: ['electron'],
   };
 }
 
