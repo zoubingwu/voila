@@ -1,0 +1,20 @@
+{
+  "name": "animation",
+  "version": "0.1.0",
+  "main": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "example": "parcel serve example/index.html"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "parcel": "^1.12.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}
