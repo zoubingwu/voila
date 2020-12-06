@@ -2,7 +2,7 @@ This monorepo use yarn workspace to manage depencencies.
 
 ## development
 
-install depencies
+install dependencies
 
 ```sh
 yarn
@@ -42,14 +42,14 @@ It exposed two simple to use react hooks API: **useSpringValue** and **useTrail*
 
 This turns any value into spring based values, given an initial value, and once you set it to another value, it will recalculate and triggers re-render on each frame.
 
-It accepts any number values, and returns animated value and setter functions.
+It accepts any number values, and returns spring based value and setter functions.
 
 ```js
 const [props, set, hardSet] = useSpringValue({ opacity: 0 });
 
 <div style={{ opacity: props.opacity }}/>
 
-// This triggers animation start and re-renders on each frame
+// This triggers animation and re-renders on each frame
 set({ opacity: 1 })
 
 // This sets tha value immediately and there won't be any animations.
@@ -78,7 +78,7 @@ hardSet({ opacity: 1 })
 
 check demo in [https://voila-tableview.vercel.app/](https://voila-tableview.vercel.app/)
 
-This package implemented a performat virtual list react component that only renders elements in viewport. It also supports loading data infinitely.
+This package implemented a performant virtual list React component that only renders elements in viewport. It also supports loading data infinitely.
 
 | props  | type  | required  | description  |
 |---|---|---|---|
