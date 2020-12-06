@@ -127,6 +127,10 @@ export class SpringValue {
     }
   }
 
+
+  /**
+   * The core algorithms is based on https://github.com/Popmotion/popmotion and https://github.com/skevy/wobble
+   */
   private nextFrame(ts: number) {
     if (!this._isAnimating) {
       return;
